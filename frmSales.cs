@@ -37,5 +37,21 @@ namespace stock_tracking_automation
             frmMüsteriEkle ekle = new frmMüsteriEkle();
             ekle.ShowDialog();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmMusteriListele listele = new frmMusteriListele();
+            listele.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void frmSales_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

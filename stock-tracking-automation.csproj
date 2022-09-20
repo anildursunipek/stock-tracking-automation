@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmMusteriListele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMusteriListele.Designer.cs">
+      <DependentUpon>frmMusteriListele.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMüsteriEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmMusteriListele.resx">
+      <DependentUpon>frmMusteriListele.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMüsteriEkle.resx">
       <DependentUpon>frmMüsteriEkle.cs</DependentUpon>
     </EmbeddedResource>
