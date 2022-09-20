@@ -73,7 +73,8 @@ namespace stock_tracking_automation
         private void btnSil_Click(object sender, EventArgs e)
         {
             connect.Open();
-            SqlCommand command = new SqlCommand("delete * from müsteri where tc = '"+dataGridView1.CurrentRow.Cells["tc"].Value.ToString()+"'",connect);
+            String query = String.Format("delete from müsteri where tc = '"+ dataGridView1.CurrentRow.Cells["tc"].Value.ToString()) + "'";
+            SqlCommand command = new SqlCommand(query, connect);
             command.ExecuteNonQuery();
             connect.Close();
             MessageBox.Show("Kayıt Silindi");
@@ -85,7 +86,8 @@ namespace stock_tracking_automation
         {
             DataTable table = new DataTable();
             connect.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("Select * from müsteri where tc = '%"+txtTc.Text+"%'", connect);
+            String query = "Select * from müsteri where tc like '%"+txtAra.Text+ "%' or adSoyad like '%"+txtAra.Text+ "%' or telefon like '%"+txtAra.Text+ "%' or adres like '%"+txtAra.Text+ "%' or email like '%"+txtAra.Text+"%'";
+            SqlDataAdapter adapter = new SqlDataAdapter(query, connect);
             adapter.Fill(table);
             dataGridView1.DataSource = table;
             connect.Close();

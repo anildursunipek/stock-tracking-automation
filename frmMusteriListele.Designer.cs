@@ -41,7 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSil = new System.Windows.Forms.Button();
-            this.textAra = new System.Windows.Forms.TextBox();
+            this.txtAra = new System.Windows.Forms.TextBox();
             this.lblAra = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -157,13 +157,13 @@
             this.btnSil.UseVisualStyleBackColor = true;
             this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
-            // textAra
+            // txtAra
             // 
-            this.textAra.Location = new System.Drawing.Point(578, 12);
-            this.textAra.Name = "textAra";
-            this.textAra.Size = new System.Drawing.Size(100, 20);
-            this.textAra.TabIndex = 15;
-            this.textAra.TextChanged += new System.EventHandler(this.textAra_TextChanged);
+            this.txtAra.Location = new System.Drawing.Point(578, 12);
+            this.txtAra.Name = "txtAra";
+            this.txtAra.Size = new System.Drawing.Size(100, 20);
+            this.txtAra.TabIndex = 15;
+            this.txtAra.TextChanged += new System.EventHandler(this.textAra_TextChanged);
             // 
             // lblAra
             // 
@@ -181,7 +181,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(690, 297);
             this.Controls.Add(this.lblAra);
-            this.Controls.Add(this.textAra);
+            this.Controls.Add(this.txtAra);
             this.Controls.Add(this.btnSil);
             this.Controls.Add(this.btnGüncelle);
             this.Controls.Add(this.txtEmail);
@@ -220,7 +220,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSil;
-        private System.Windows.Forms.TextBox textAra;
+        private System.Windows.Forms.TextBox txtAra;
         private System.Windows.Forms.Label lblAra;
     }
 }
