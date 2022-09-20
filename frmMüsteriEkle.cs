@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace stock_tracking_automation
 {
-    public partial class Form1 : Form
+    public partial class frmMüsteriEkle : Form
     {
-        public Form1()
+        public frmMüsteriEkle()
         {
             InitializeComponent();
         }

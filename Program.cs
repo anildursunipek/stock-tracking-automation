@@ -16,7 +16,7 @@ namespace stock_tracking_automation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmSales());
         }
     }
 }
