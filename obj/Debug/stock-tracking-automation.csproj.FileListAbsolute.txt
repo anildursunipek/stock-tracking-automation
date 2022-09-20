@@ -9,3 +9,4 @@ C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock-tracking
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock-tracking-automation.csproj.CoreCompileInputs.cache
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock-tracking-automation.exe
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock-tracking-automation.pdb
+C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock_tracking_automation.frmMüsteriEkle.resources
