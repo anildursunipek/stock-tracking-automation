@@ -35,7 +35,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTel = new System.Windows.Forms.TextBox();
             this.txtAdSoyad = new System.Windows.Forms.TextBox();
-            this.txtTc = new System.Windows.Forms.TextBox();
+            this.txtMusteriNo = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -83,7 +83,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtTel);
             this.groupBox1.Controls.Add(this.txtAdSoyad);
-            this.groupBox1.Controls.Add(this.txtTc);
+            this.groupBox1.Controls.Add(this.txtMusteriNo);
             this.groupBox1.Location = new System.Drawing.Point(12, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(187, 136);
@@ -115,9 +115,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "TC";
+            this.label1.Text = "Müsteri No";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtTel
@@ -134,12 +134,12 @@
             this.txtAdSoyad.Size = new System.Drawing.Size(98, 20);
             this.txtAdSoyad.TabIndex = 0;
             // 
-            // txtTc
+            // txtMusteriNo
             // 
-            this.txtTc.Location = new System.Drawing.Point(83, 20);
-            this.txtTc.Name = "txtTc";
-            this.txtTc.Size = new System.Drawing.Size(98, 20);
-            this.txtTc.TabIndex = 0;
+            this.txtMusteriNo.Location = new System.Drawing.Point(83, 20);
+            this.txtMusteriNo.Name = "txtMusteriNo";
+            this.txtMusteriNo.Size = new System.Drawing.Size(98, 20);
+            this.txtMusteriNo.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -397,7 +397,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTel;
         private System.Windows.Forms.TextBox txtAdSoyad;
-        private System.Windows.Forms.TextBox txtTc;
+        private System.Windows.Forms.TextBox txtMusteriNo;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

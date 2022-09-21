@@ -34,7 +34,7 @@
             this.txtAdres = new System.Windows.Forms.TextBox();
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.txtAdSoyad = new System.Windows.Forms.TextBox();
-            this.txtTc = new System.Windows.Forms.TextBox();
+            this.txtMusteriNo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -95,12 +95,12 @@
             this.txtAdSoyad.Size = new System.Drawing.Size(100, 20);
             this.txtAdSoyad.TabIndex = 11;
             // 
-            // txtTc
+            // txtMusteriNo
             // 
-            this.txtTc.Location = new System.Drawing.Point(100, 39);
-            this.txtTc.Name = "txtTc";
-            this.txtTc.Size = new System.Drawing.Size(100, 20);
-            this.txtTc.TabIndex = 12;
+            this.txtMusteriNo.Location = new System.Drawing.Point(100, 39);
+            this.txtMusteriNo.Name = "txtMusteriNo";
+            this.txtMusteriNo.Size = new System.Drawing.Size(100, 20);
+            this.txtMusteriNo.TabIndex = 12;
             // 
             // label5
             // 
@@ -143,9 +143,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(36, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "TC";
+            this.label1.Text = "Müsteri No";
             // 
             // btnSil
             // 
@@ -188,7 +188,7 @@
             this.Controls.Add(this.txtAdres);
             this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.txtAdSoyad);
-            this.Controls.Add(this.txtTc);
+            this.Controls.Add(this.txtMusteriNo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -213,7 +213,7 @@
         private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.TextBox txtAdSoyad;
-        private System.Windows.Forms.TextBox txtTc;
+        private System.Windows.Forms.TextBox txtMusteriNo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;

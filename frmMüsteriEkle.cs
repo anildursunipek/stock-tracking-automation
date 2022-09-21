@@ -32,8 +32,8 @@ namespace stock_tracking_automation
         private void btnEkle_Click(object sender, EventArgs e)
         {
             connect.Open();
-            SqlCommand command = new SqlCommand("insert into müsteri(tc,adSoyad,telefon,adres,email) values(@tc,@adSoyad,@telefon,@adres,@email) ", connect);
-            command.Parameters.AddWithValue("@tc", txtTc.Text);/*textBox içerisine girilen parametreler sql komutu içerisine aktarıldı*/
+            SqlCommand command = new SqlCommand("insert into müsteri(musteriNo,adSoyad,telefon,adres,email) values(@musteriNo,@adSoyad,@telefon,@adres,@email) ", connect);
+            command.Parameters.AddWithValue("@musteriNo", txtMusteriNo.Text);/*textBox içerisine girilen parametreler sql komutu içerisine aktarıldı*/
             command.Parameters.AddWithValue("@adSoyad", txtAdSoyad.Text);
             command.Parameters.AddWithValue("@telefon", txtTelefon.Text);
             command.Parameters.AddWithValue("@adres", txtAdres.Text);

@@ -40,7 +40,7 @@ namespace stock_tracking_automation
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtTc.Text = dataGridView1.CurrentRow.Cells["tc"].Value.ToString();
+            txtMusteriNo.Text = dataGridView1.CurrentRow.Cells["musteriNo"].Value.ToString();
             txtAdSoyad.Text = dataGridView1.CurrentRow.Cells["adSoyad"].Value.ToString();
             txtTelefon.Text = dataGridView1.CurrentRow.Cells["telefon"].Value.ToString();
             txtAdres.Text = dataGridView1.CurrentRow.Cells["adres"].Value.ToString();
@@ -50,8 +50,8 @@ namespace stock_tracking_automation
         private void btnGüncelle_Click(object sender, EventArgs e)
         {
             connect.Open();
-            SqlCommand command = new SqlCommand("update müsteri set adSoyad = @adSoyad, telefon = @telefon, adres = @adres, email = @email where tc = @tc",connect);
-            command.Parameters.AddWithValue("@tc", txtTc.Text);
+            SqlCommand command = new SqlCommand("update müsteri set adSoyad = @adSoyad, telefon = @telefon, adres = @adres, email = @email where musteriNo = @musteriNo", connect);
+            command.Parameters.AddWithValue("@musteriNo", txtMusteriNo.Text);
             command.Parameters.AddWithValue("@adSoyad", txtAdSoyad.Text);
             command.Parameters.AddWithValue("@telefon", txtTelefon.Text);
             command.Parameters.AddWithValue("@adres", txtAdres.Text);
@@ -73,7 +73,7 @@ namespace stock_tracking_automation
         private void btnSil_Click(object sender, EventArgs e)
         {
             connect.Open();
-            String query = String.Format("delete from müsteri where tc = '"+ dataGridView1.CurrentRow.Cells["tc"].Value.ToString()) + "'";
+            String query = String.Format("delete from müsteri where musteriNo = '" + dataGridView1.CurrentRow.Cells["musteriNo"].Value.ToString()) + "'";
             SqlCommand command = new SqlCommand(query, connect);
             command.ExecuteNonQuery();
             connect.Close();
@@ -86,7 +86,7 @@ namespace stock_tracking_automation
         {
             DataTable table = new DataTable();
             connect.Open();
-            String query = "Select * from müsteri where tc like '%"+txtAra.Text+ "%' or adSoyad like '%"+txtAra.Text+ "%' or telefon like '%"+txtAra.Text+ "%' or adres like '%"+txtAra.Text+ "%' or email like '%"+txtAra.Text+"%'";
+            String query = "Select * from müsteri where musteriNo like '%" + txtAra.Text+ "%' or adSoyad like '%"+txtAra.Text+ "%' or telefon like '%"+txtAra.Text+ "%' or adres like '%"+txtAra.Text+ "%' or email like '%"+txtAra.Text+"%'";
             SqlDataAdapter adapter = new SqlDataAdapter(query, connect);
             adapter.Fill(table);
             dataGridView1.DataSource = table;
