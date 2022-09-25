@@ -26,14 +26,22 @@ namespace stock_tracking_automation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            connect.Open();
-            string query = "insert into markaBilgileri(kategori,marka) values('" + cmbKategori.Text + "','"+txtMarka.Text+"')";
-            SqlCommand command = new SqlCommand(query,connect);
-            command.ExecuteNonQuery();
-            connect.Close();
+            markaKontrol();
+            if(flag == true) {
+                connect.Open();
+                string query = "insert into markaBilgileri(kategori,marka) values('" + cmbKategori.Text + "','"+txtMarka.Text+"')";
+                SqlCommand command = new SqlCommand(query,connect);
+                command.ExecuteNonQuery();
+                connect.Close();
+                txtMarka.Text = "";
+                cmbKategori.Text = "";
+                MessageBox.Show("Marka Eklendi");
+            }
+            else
+            {
+                MessageBox.Show("Böyle bir kategori ve marka var!", "Uyarı!");
+            }
             txtMarka.Text = "";
-            cmbKategori.Text = "";
-            MessageBox.Show("Marka Eklendi");
         }
         private void kategoriGetir()
         {
@@ -44,6 +52,24 @@ namespace stock_tracking_automation
             while (read.Read())
             {
                 cmbKategori.Items.Add(read["kategori"].ToString());
+            }
+            connect.Close();
+        }
+        bool flag;
+        private void markaKontrol()
+        {
+            flag = true;
+            connect.Open();
+            string query = "select * from markaBilgileri";
+            SqlCommand command = new SqlCommand(query, connect);
+            SqlDataReader read = command.ExecuteReader();
+            while (read.Read())
+            {
+                if (cmbKategori.Text == read["kategori"].ToString() && txtMarka.Text == read["marka"].ToString() || txtMarka.Text == "" || cmbKategori.Text == "")
+                {
+                    flag = false;
+                    break;
+                }
             }
             connect.Close();
         }

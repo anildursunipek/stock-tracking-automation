@@ -28,31 +28,68 @@ namespace stock_tracking_automation
         private void btnVarOlanaEkle_Click(object sender, EventArgs e)
         {
             connect.Open();
-            String query = "";
-            SqlCommand command = new SqlCommand(query,connect)
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            connect.Open();
-            SqlCommand command = new SqlCommand("insert into urun(kategori,marka,urunAdi,miktar,alisFiyati,satisFiyati,tarih) values(@kategori,@marka,@urunAdi,@miktar,@alisFiyati,@satisFiyati,@tarih)", connect);
-            command.Parameters.AddWithValue("@kategori", cmbKategori.Text);
-            command.Parameters.AddWithValue("@marka", cmbMarka.Text);
-            command.Parameters.AddWithValue("@urunAdi", txtUrunAdi.Text);
-            command.Parameters.AddWithValue("@miktar",int.Parse(txtMiktari.Text));
-            command.Parameters.AddWithValue("@alisFiyati",double.Parse(txtAlisFiyati.Text));
-            command.Parameters.AddWithValue("@satisFiyati",double.Parse(txtSatisFiyati.Text));
-            command.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
+            String query = "update urun set miktar = miktar + '"+int.Parse(MiktariTxt.Text)+"' where urunID = '"+UrunIDtxt.Text+"'";
+            SqlCommand command = new SqlCommand(query, connect);
             command.ExecuteNonQuery();
             connect.Close();
-            MessageBox.Show("Ürün Eklendi");
-            cmbMarka.Items.Clear();
-            foreach (Control item in groupBox1.Controls)
+            MessageBox.Show("Var Olan Ürüne Ekleme Yapıldı");
+            foreach(Control item in groupBox2.Controls)
             {
                 if(item is TextBox)
                 {
                     item.Text = "";
                 }
-                if(item is ComboBox)
+            }
+
+        }
+        bool flag;
+        private void urun_kontrol_yeni_urun()
+        {
+            flag = true;
+            connect.Open();
+            string query = "select * from urun";
+            SqlCommand command = new SqlCommand(query, connect);
+            SqlDataReader read = command.ExecuteReader();
+            while (read.Read())
+            {
+                if (txtUrunAdi.Text == read["urunAdi"].ToString() || cmbMarka.Text == "" || cmbKategori.Text == "" || txtUrunAdi.Text == "")
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            connect.Close();
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            urun_kontrol_yeni_urun();
+            if(flag == true) { 
+                connect.Open();
+                SqlCommand command = new SqlCommand("insert into urun(kategori,marka,urunAdi,miktar,alisFiyati,satisFiyati,tarih) values(@kategori,@marka,@urunAdi,@miktar,@alisFiyati,@satisFiyati,@tarih)", connect);
+                command.Parameters.AddWithValue("@kategori", cmbKategori.Text);
+                command.Parameters.AddWithValue("@marka", cmbMarka.Text);
+                command.Parameters.AddWithValue("@urunAdi", txtUrunAdi.Text);
+                command.Parameters.AddWithValue("@miktar",int.Parse(txtMiktari.Text));
+                command.Parameters.AddWithValue("@alisFiyati",double.Parse(txtAlisFiyati.Text));
+                command.Parameters.AddWithValue("@satisFiyati",double.Parse(txtSatisFiyati.Text));
+                command.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
+                command.ExecuteNonQuery();
+                connect.Close();
+                MessageBox.Show("Ürün Eklendi");
+                cmbMarka.Items.Clear();
+
+            }
+            else
+            {
+                MessageBox.Show("Böyle bir ürün var");
+            }
+            foreach (Control item in groupBox1.Controls)
+            {
+                if (item is TextBox)
+                {
+                    item.Text = "";
+                }
+                if (item is ComboBox)
                 {
                     item.Text = "";
                 }
@@ -94,34 +131,54 @@ namespace stock_tracking_automation
         {
 
         }
-
+        private void urun_kontrol_var_olan()
+        {
+            flag = true;
+            connect.Open();
+            string query = "select * from urun";
+            SqlCommand command = new SqlCommand(query, connect);
+            SqlDataReader read = command.ExecuteReader();
+            while (read.Read())
+            {
+                if (UrunIDtxt.Text == read["urunID"].ToString() || UrunIDtxt.Text == "")
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            connect.Close();
+        }
         private void UrunIDtxt_TextChanged(object sender, EventArgs e)
         {
-            if(UrunIDtxt.Text == "")
+            urun_kontrol_var_olan();
+            if (flag == false)
             {
-                lblMiktar.Text = "";
-                foreach(Control item in groupBox2.Controls)
+                connect.Open();
+                String query = "select kategori,marka,urunAdi,miktar,alisFiyati,satisFiyati from urun where urunID = '" + UrunIDtxt.Text + "'";
+                SqlCommand command = new SqlCommand(query, connect);
+                SqlDataReader read = command.ExecuteReader();
+                while (read.Read())
                 {
-                    if(item is TextBox)
+                    KategoriTxt.Text = read["kategori"].ToString();
+                    MarkaTxt.Text = read["marka"].ToString();
+                    UrunAdiTxt.Text = read["urunAdi"].ToString();
+                    lblMiktar.Text = read["miktar"].ToString();
+                    AlisFiyatiTxt.Text = read["alisFiyati"].ToString();
+                    SatisFiyatiTxt.Text = read["satisFiyati"].ToString();
+                }
+                connect.Close();
+            }
+            if (flag == true || UrunIDtxt.Text == "") {    
+                lblMiktar.Text = "";
+                foreach (Control item in groupBox2.Controls)
+                {
+                    if (item is TextBox && item != UrunIDtxt)
                     {
                         item.Text = "";
                     }
                 }
             }
-            connect.Open();
-            String query = "select kategori,marka,urunAdi,miktar,alisFiyati,satisFiyati from urun where urunID = '" + UrunIDtxt.Text + "'";
-            SqlCommand command = new SqlCommand(query,connect);
-            SqlDataReader read = command.ExecuteReader();
-            while (read.Read())
-            {
-                KategoriTxt.Text = read["kategori"].ToString();
-                MarkaTxt.Text = read["marka"].ToString();
-                UrunAdiTxt.Text = read["urunAdi"].ToString();
-                lblMiktar.Text = read["miktar"].ToString();
-                AlisFiyatiTxt.Text = read["alisFiyati"].ToString();
-                SatisFiyatiTxt.Text = read["satisFiyati"].ToString();
-            }
-            connect.Close();
-        }
+        } 
     }
 }
+

@@ -21,18 +21,43 @@ namespace stock_tracking_automation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            connect.Open();
-            string query = "insert into kategoriBilgileri(kategori) values('" + txtKategori.Text + "')";
-            SqlCommand command = new SqlCommand(query,connect);
-            command.ExecuteNonQuery();
-            connect.Close();
+            kategoriKontrol();
+            if(flag == true) { 
+                connect.Open();
+                string query = "insert into kategoriBilgileri(kategori) values('" + txtKategori.Text + "')";
+                SqlCommand command = new SqlCommand(query,connect);
+                command.ExecuteNonQuery();
+                connect.Close();
+                txtKategori.Text = "";
+                MessageBox.Show("Kategori Eklendi");
+            }
+            else
+            {
+                MessageBox.Show("Böyle bir kategori var!", "Uyarı!");
+            }
             txtKategori.Text = "";
-            MessageBox.Show("Kategori Eklendi");
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        bool flag;
+        private void kategoriKontrol() {
+            flag = true;
+            connect.Open();
+            string query = "select * from kategoriBilgileri";
+            SqlCommand command = new SqlCommand(query,connect);
+            SqlDataReader read = command.ExecuteReader();
+            while (read.Read())
+            {
+                if(txtKategori.Text == read["kategori"].ToString() || txtKategori.Text == "")
+                {
+                    flag = false;
+                    break;
+                }
+            }
+            connect.Close();
         }
 
         private void frmKategori_Load(object sender, EventArgs e)
