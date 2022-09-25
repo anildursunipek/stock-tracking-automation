@@ -59,6 +59,8 @@
             this.btnMusteriListeleme = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btnMusteriEkleme = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -299,6 +301,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button9);
             this.panel1.Controls.Add(this.button8);
             this.panel1.Controls.Add(this.btnMusteriListeleme);
@@ -312,7 +316,7 @@
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(698, 21);
+            this.button9.Location = new System.Drawing.Point(555, 21);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(132, 41);
             this.button9.TabIndex = 0;
@@ -321,7 +325,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(490, 21);
+            this.button8.Location = new System.Drawing.Point(417, 21);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(132, 41);
             this.button8.TabIndex = 0;
@@ -330,7 +334,7 @@
             // 
             // btnMusteriListeleme
             // 
-            this.btnMusteriListeleme.Location = new System.Drawing.Point(190, 21);
+            this.btnMusteriListeleme.Location = new System.Drawing.Point(141, 21);
             this.btnMusteriListeleme.Name = "btnMusteriListeleme";
             this.btnMusteriListeleme.Size = new System.Drawing.Size(132, 41);
             this.btnMusteriListeleme.TabIndex = 0;
@@ -340,22 +344,43 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(352, 21);
+            this.button7.Location = new System.Drawing.Point(279, 21);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(132, 41);
             this.button7.TabIndex = 0;
             this.button7.Text = "Ürün Ekleme";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // btnMusteriEkleme
             // 
-            this.btnMusteriEkleme.Location = new System.Drawing.Point(52, 21);
+            this.btnMusteriEkleme.Location = new System.Drawing.Point(3, 21);
             this.btnMusteriEkleme.Name = "btnMusteriEkleme";
             this.btnMusteriEkleme.Size = new System.Drawing.Size(132, 41);
             this.btnMusteriEkleme.TabIndex = 0;
             this.btnMusteriEkleme.Text = "Müşteri Ekleme";
             this.btnMusteriEkleme.UseVisualStyleBackColor = true;
             this.btnMusteriEkleme.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(693, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 41);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Ketegori";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(789, 21);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 41);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Marka";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmSales
             // 
@@ -421,6 +446,8 @@
         private System.Windows.Forms.Button btnMusteriListeleme;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnMusteriEkleme;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

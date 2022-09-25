@@ -53,5 +53,23 @@ namespace stock_tracking_automation
         {
 
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            frmUrunEkleme ekle = new frmUrunEkleme();
+            ekle.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmKategori ekle = new frmKategori();
+            ekle.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmMarka ekle = new frmMarka();
+            ekle.ShowDialog();
+        }
     }
 }
