@@ -33,13 +33,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtMusteriNo = new System.Windows.Forms.TextBox();
             this.txtAdSoyad = new System.Windows.Forms.TextBox();
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.txtAdres = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnEkle = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.txtMusteriNo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -92,13 +92,6 @@
             this.label5.Text = "E-mail";
             this.label5.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtMusteriNo
-            // 
-            this.txtMusteriNo.Location = new System.Drawing.Point(101, 12);
-            this.txtMusteriNo.Name = "txtMusteriNo";
-            this.txtMusteriNo.Size = new System.Drawing.Size(100, 20);
-            this.txtMusteriNo.TabIndex = 1;
-            // 
             // txtAdSoyad
             // 
             this.txtAdSoyad.Location = new System.Drawing.Point(101, 41);
@@ -141,18 +134,27 @@
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
+            // txtMusteriNo
+            // 
+            this.txtMusteriNo.AutoSize = true;
+            this.txtMusteriNo.Location = new System.Drawing.Point(101, 19);
+            this.txtMusteriNo.Name = "txtMusteriNo";
+            this.txtMusteriNo.Size = new System.Drawing.Size(42, 13);
+            this.txtMusteriNo.TabIndex = 3;
+            this.txtMusteriNo.Text = "xxxxxxx";
+            // 
             // frmMüsteriEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(235, 202);
+            this.Controls.Add(this.txtMusteriNo);
             this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtAdres);
             this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.txtAdSoyad);
-            this.Controls.Add(this.txtMusteriNo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -174,12 +176,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtMusteriNo;
         private System.Windows.Forms.TextBox txtAdSoyad;
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button btnEkle;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label txtMusteriNo;
     }
 }

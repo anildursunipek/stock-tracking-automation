@@ -71,5 +71,11 @@ namespace stock_tracking_automation
             frmMarka ekle = new frmMarka();
             ekle.ShowDialog();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            frmUrunListeleme listele = new frmUrunListeleme();
+            listele.ShowDialog();
+        }
     }
 }

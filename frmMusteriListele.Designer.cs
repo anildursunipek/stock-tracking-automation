@@ -34,7 +34,6 @@
             this.txtAdres = new System.Windows.Forms.TextBox();
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.txtAdSoyad = new System.Windows.Forms.TextBox();
-            this.txtMusteriNo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,6 +42,7 @@
             this.btnSil = new System.Windows.Forms.Button();
             this.txtAra = new System.Windows.Forms.TextBox();
             this.lblAra = new System.Windows.Forms.Label();
+            this.txtMusteriNo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,13 +94,6 @@
             this.txtAdSoyad.Name = "txtAdSoyad";
             this.txtAdSoyad.Size = new System.Drawing.Size(100, 20);
             this.txtAdSoyad.TabIndex = 11;
-            // 
-            // txtMusteriNo
-            // 
-            this.txtMusteriNo.Location = new System.Drawing.Point(100, 39);
-            this.txtMusteriNo.Name = "txtMusteriNo";
-            this.txtMusteriNo.Size = new System.Drawing.Size(100, 20);
-            this.txtMusteriNo.TabIndex = 12;
             // 
             // label5
             // 
@@ -174,12 +167,22 @@
             this.lblAra.TabIndex = 16;
             this.lblAra.Text = "Arama";
             // 
+            // txtMusteriNo
+            // 
+            this.txtMusteriNo.AutoSize = true;
+            this.txtMusteriNo.Location = new System.Drawing.Point(100, 46);
+            this.txtMusteriNo.Name = "txtMusteriNo";
+            this.txtMusteriNo.Size = new System.Drawing.Size(47, 13);
+            this.txtMusteriNo.TabIndex = 17;
+            this.txtMusteriNo.Text = "xxxxxxxx";
+            // 
             // frmMusteriListele
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(690, 297);
+            this.Controls.Add(this.txtMusteriNo);
             this.Controls.Add(this.lblAra);
             this.Controls.Add(this.txtAra);
             this.Controls.Add(this.btnSil);
@@ -188,7 +191,6 @@
             this.Controls.Add(this.txtAdres);
             this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.txtAdSoyad);
-            this.Controls.Add(this.txtMusteriNo);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -213,7 +215,6 @@
         private System.Windows.Forms.TextBox txtAdres;
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.TextBox txtAdSoyad;
-        private System.Windows.Forms.TextBox txtMusteriNo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -222,5 +223,6 @@
         private System.Windows.Forms.Button btnSil;
         private System.Windows.Forms.TextBox txtAra;
         private System.Windows.Forms.Label lblAra;
+        private System.Windows.Forms.Label txtMusteriNo;
     }
 }

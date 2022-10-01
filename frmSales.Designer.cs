@@ -54,13 +54,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblGenelToplam = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btnMusteriListeleme = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.btnMusteriEkleme = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -314,6 +314,26 @@
             this.panel1.Size = new System.Drawing.Size(893, 78);
             this.panel1.TabIndex = 5;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(789, 21);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 41);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Marka";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(693, 21);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 41);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Ketegori";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button9
             // 
             this.button9.Location = new System.Drawing.Point(555, 21);
@@ -331,6 +351,7 @@
             this.button8.TabIndex = 0;
             this.button8.Text = "Ürün Listeleme";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // btnMusteriListeleme
             // 
@@ -361,26 +382,6 @@
             this.btnMusteriEkleme.Text = "Müşteri Ekleme";
             this.btnMusteriEkleme.UseVisualStyleBackColor = true;
             this.btnMusteriEkleme.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(693, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 41);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Ketegori";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(789, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 41);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Marka";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmSales
             // 

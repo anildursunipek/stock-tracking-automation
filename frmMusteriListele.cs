@@ -17,7 +17,7 @@ namespace stock_tracking_automation
         {
             InitializeComponent();
         }
-        /*Data base bağlantısı sağlandı*/
+        /*Database bağlantısı sağlandı*/
         SqlConnection connect = new SqlConnection("Data Source=DESKTOP-UQ3M9IO;Initial Catalog=Stok_Takip;Integrated Security=True");
         DataSet ds = new DataSet();
 
@@ -51,7 +51,7 @@ namespace stock_tracking_automation
         {
             connect.Open();
             SqlCommand command = new SqlCommand("update müsteri set adSoyad = @adSoyad, telefon = @telefon, adres = @adres, email = @email where musteriNo = @musteriNo", connect);
-            command.Parameters.AddWithValue("@musteriNo", txtMusteriNo.Text);
+            command.Parameters.AddWithValue("@musteriNo", int.Parse(txtMusteriNo.Text));
             command.Parameters.AddWithValue("@adSoyad", txtAdSoyad.Text);
             command.Parameters.AddWithValue("@telefon", txtTelefon.Text);
             command.Parameters.AddWithValue("@adres", txtAdres.Text);
