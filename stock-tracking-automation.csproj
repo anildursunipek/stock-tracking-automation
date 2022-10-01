@@ -76,6 +76,12 @@
     <Compile Include="frmSatis.Designer.cs">
       <DependentUpon>frmSatis.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSatisListele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSatisListele.Designer.cs">
+      <DependentUpon>frmSatisListele.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUrunEkleme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSatis.resx">
       <DependentUpon>frmSatis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSatisListele.resx">
+      <DependentUpon>frmSatisListele.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUrunEkleme.resx">
       <DependentUpon>frmUrunEkleme.cs</DependentUpon>

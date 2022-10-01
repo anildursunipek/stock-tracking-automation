@@ -283,6 +283,7 @@
             this.btnSatisYap.TabIndex = 3;
             this.btnSatisYap.Text = "Satış Yap";
             this.btnSatisYap.UseVisualStyleBackColor = true;
+            this.btnSatisYap.Click += new System.EventHandler(this.btnSatisYap_Click);
             // 
             // label9
             // 
@@ -298,8 +299,9 @@
             this.lblGenelToplam.AutoSize = true;
             this.lblGenelToplam.Location = new System.Drawing.Point(622, 425);
             this.lblGenelToplam.Name = "lblGenelToplam";
-            this.lblGenelToplam.Size = new System.Drawing.Size(0, 13);
+            this.lblGenelToplam.Size = new System.Drawing.Size(13, 13);
             this.lblGenelToplam.TabIndex = 4;
+            this.lblGenelToplam.Text = "0";
             // 
             // panel1
             // 
@@ -315,6 +317,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(893, 78);
             this.panel1.TabIndex = 5;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button2
             // 
@@ -344,6 +347,7 @@
             this.button9.TabIndex = 0;
             this.button9.Text = "Satış Listeleme";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button8
             // 
