@@ -1,6 +1,6 @@
 ﻿namespace stock_tracking_automation
 {
-    partial class frmSales
+    partial class frmSatis
     {
         /// <summary>
         /// Required designer variable.
@@ -46,7 +46,7 @@
             this.txtSatisFiyati = new System.Windows.Forms.TextBox();
             this.txtMiktar = new System.Windows.Forms.TextBox();
             this.txtUrunAdi = new System.Windows.Forms.TextBox();
-            this.txtBarkodNo = new System.Windows.Forms.TextBox();
+            this.txtUrunID = new System.Windows.Forms.TextBox();
             this.btnSil = new System.Windows.Forms.Button();
             this.btnSatisİptal = new System.Windows.Forms.Button();
             this.btnEkle = new System.Windows.Forms.Button();
@@ -75,7 +75,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(581, 307);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // groupBox1
             // 
@@ -101,7 +100,6 @@
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 1;
             this.label3.Text = "Telefon";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -120,7 +118,6 @@
             this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Müsteri No";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtTel
             // 
@@ -142,6 +139,7 @@
             this.txtMusteriNo.Name = "txtMusteriNo";
             this.txtMusteriNo.Size = new System.Drawing.Size(98, 20);
             this.txtMusteriNo.TabIndex = 0;
+            this.txtMusteriNo.TextChanged += new System.EventHandler(this.txtMusteriNo_TextChanged);
             // 
             // groupBox2
             // 
@@ -155,7 +153,7 @@
             this.groupBox2.Controls.Add(this.txtSatisFiyati);
             this.groupBox2.Controls.Add(this.txtMiktar);
             this.groupBox2.Controls.Add(this.txtUrunAdi);
-            this.groupBox2.Controls.Add(this.txtBarkodNo);
+            this.groupBox2.Controls.Add(this.txtUrunID);
             this.groupBox2.Location = new System.Drawing.Point(12, 247);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(187, 154);
@@ -171,7 +169,6 @@
             this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 1;
             this.label8.Text = "Toplam Fiyatı";
-            this.label8.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
             // 
@@ -181,7 +178,6 @@
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 1;
             this.label7.Text = "Satış Fiyatı";
-            this.label7.Click += new System.EventHandler(this.label6_Click);
             // 
             // label6
             // 
@@ -191,7 +187,6 @@
             this.label6.Size = new System.Drawing.Size(38, 13);
             this.label6.TabIndex = 1;
             this.label6.Text = "Miktarı";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -207,9 +202,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(5, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.Size = new System.Drawing.Size(44, 13);
             this.label4.TabIndex = 1;
-            this.label4.Text = "BarkodNo";
+            this.label4.Text = "Ürün ID";
             // 
             // txtToplamFiyat
             // 
@@ -231,6 +226,9 @@
             this.txtMiktar.Name = "txtMiktar";
             this.txtMiktar.Size = new System.Drawing.Size(98, 20);
             this.txtMiktar.TabIndex = 0;
+            this.txtMiktar.Text = "1";
+            this.txtMiktar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtMiktar.TextChanged += new System.EventHandler(this.txtMiktar_TextChanged);
             // 
             // txtUrunAdi
             // 
@@ -239,12 +237,13 @@
             this.txtUrunAdi.Size = new System.Drawing.Size(98, 20);
             this.txtUrunAdi.TabIndex = 0;
             // 
-            // txtBarkodNo
+            // txtUrunID
             // 
-            this.txtBarkodNo.Location = new System.Drawing.Point(83, 19);
-            this.txtBarkodNo.Name = "txtBarkodNo";
-            this.txtBarkodNo.Size = new System.Drawing.Size(98, 20);
-            this.txtBarkodNo.TabIndex = 0;
+            this.txtUrunID.Location = new System.Drawing.Point(83, 19);
+            this.txtUrunID.Name = "txtUrunID";
+            this.txtUrunID.Size = new System.Drawing.Size(98, 20);
+            this.txtUrunID.TabIndex = 0;
+            this.txtUrunID.TextChanged += new System.EventHandler(this.txtBarkodNo_TextChanged);
             // 
             // btnSil
             // 
@@ -254,6 +253,7 @@
             this.btnSil.TabIndex = 3;
             this.btnSil.Text = "Sil";
             this.btnSil.UseVisualStyleBackColor = true;
+            this.btnSil.Click += new System.EventHandler(this.btnSil_Click);
             // 
             // btnSatisİptal
             // 
@@ -263,6 +263,7 @@
             this.btnSatisİptal.TabIndex = 3;
             this.btnSatisİptal.Text = "Satış İptal";
             this.btnSatisİptal.UseVisualStyleBackColor = true;
+            this.btnSatisİptal.Click += new System.EventHandler(this.btnSatisİptal_Click);
             // 
             // btnEkle
             // 
@@ -272,6 +273,7 @@
             this.btnEkle.TabIndex = 3;
             this.btnEkle.Text = "Ekle";
             this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // btnSatisYap
             // 
@@ -285,7 +287,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(537, 425);
+            this.label9.Location = new System.Drawing.Point(528, 425);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(79, 13);
             this.label9.TabIndex = 4;
@@ -383,7 +385,7 @@
             this.btnMusteriEkleme.UseVisualStyleBackColor = true;
             this.btnMusteriEkleme.Click += new System.EventHandler(this.button5_Click);
             // 
-            // frmSales
+            // frmSatis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -399,7 +401,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "frmSales";
+            this.Name = "frmSatis";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Satış Sayfası";
             this.Load += new System.EventHandler(this.frmSales_Load);
@@ -432,7 +434,7 @@
         private System.Windows.Forms.TextBox txtSatisFiyati;
         private System.Windows.Forms.TextBox txtMiktar;
         private System.Windows.Forms.TextBox txtUrunAdi;
-        private System.Windows.Forms.TextBox txtBarkodNo;
+        private System.Windows.Forms.TextBox txtUrunID;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSil;

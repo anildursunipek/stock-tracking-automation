@@ -3,7 +3,6 @@ C:\Users\fb-du\Desktop\Github\stock-tracking-automation\bin\Debug\stock-tracking
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\bin\Debug\stock-tracking-automation.pdb
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock-tracking-automation.csproj.AssemblyReference.cache
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock-tracking-automation.csproj.SuggestedBindingRedirects.cache
-C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock_tracking_automation.frmSales.resources
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock_tracking_automation.Properties.Resources.resources
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock-tracking-automation.csproj.GenerateResource.cache
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock-tracking-automation.csproj.CoreCompileInputs.cache
@@ -15,3 +14,4 @@ C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock_tracking
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock_tracking_automation.frmMarka.resources
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock_tracking_automation.frmUrunEkleme.resources
 C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock_tracking_automation.frmUrunListeleme.resources
+C:\Users\fb-du\Desktop\Github\stock-tracking-automation\obj\Debug\stock_tracking_automation.frmSatis.resources
