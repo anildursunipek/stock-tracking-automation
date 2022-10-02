@@ -49,26 +49,35 @@ namespace stock_tracking_automation
 
         private void btnGüncelle_Click(object sender, EventArgs e)
         {
-            connect.Open();
-            SqlCommand command = new SqlCommand("update müsteri set adSoyad = @adSoyad, telefon = @telefon, adres = @adres, email = @email where musteriNo = @musteriNo", connect);
-            command.Parameters.AddWithValue("@musteriNo", int.Parse(txtMusteriNo.Text));
-            command.Parameters.AddWithValue("@adSoyad", txtAdSoyad.Text);
-            command.Parameters.AddWithValue("@telefon", txtTelefon.Text);
-            command.Parameters.AddWithValue("@adres", txtAdres.Text);
-            command.Parameters.AddWithValue("@email", txtEmail.Text);
-            command.ExecuteNonQuery();/*Database komutu çalıştırıldı*/
-            connect.Close(); /*Database bağlantısı kapatıldı*/
-            ds.Tables["müsteri"].Clear();
-            kayıt_goster();/*Güncelleme sonrası kayıtlar yeniden getirildi*/
-            MessageBox.Show("Müsteri Kaydı Güncellendi");
-            foreach (Control item in this.Controls)
-            /*Müşteri eklendikten sonra textBox içerisindeki yazılar silindi*/
+            try
             {
-                if (item is TextBox)
+                connect.Open();
+                SqlCommand command = new SqlCommand("update müsteri set adSoyad = @adSoyad, telefon = @telefon, adres = @adres, email = @email where musteriNo = @musteriNo", connect);
+                command.Parameters.AddWithValue("@musteriNo", int.Parse(txtMusteriNo.Text));
+                command.Parameters.AddWithValue("@adSoyad", txtAdSoyad.Text);
+                command.Parameters.AddWithValue("@telefon", txtTelefon.Text);
+                command.Parameters.AddWithValue("@adres", txtAdres.Text);
+                command.Parameters.AddWithValue("@email", txtEmail.Text);
+                command.ExecuteNonQuery();/*Database komutu çalıştırıldı*/
+                connect.Close(); /*Database bağlantısı kapatıldı*/
+                ds.Tables["müsteri"].Clear();
+                kayıt_goster();/*Güncelleme sonrası kayıtlar yeniden getirildi*/
+                MessageBox.Show("Müsteri Kaydı Güncellendi");
+                foreach (Control item in this.Controls)
+                /*Müşteri eklendikten sonra textBox içerisindeki yazılar silindi*/
                 {
-                    item.Text = "";
+                    if (item is TextBox)
+                    {
+                        item.Text = "";
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                connect.Close();
+                MessageBox.Show("Ürün Seçilmedi yada bulunamadı\nHata Mesajı: " + ex.Message);
+            }
+
         }
         private void btnSil_Click(object sender, EventArgs e)
         {

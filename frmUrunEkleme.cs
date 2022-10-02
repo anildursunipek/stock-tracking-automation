@@ -27,20 +27,27 @@ namespace stock_tracking_automation
 
         private void btnVarOlanaEkle_Click(object sender, EventArgs e)
         {
-            connect.Open();
-            String query = "update urun set miktar = miktar + '"+int.Parse(MiktariTxt.Text)+"' where urunID = '"+UrunIDtxt.Text+"'";
-            SqlCommand command = new SqlCommand(query, connect);
-            command.ExecuteNonQuery();
-            connect.Close();
-            MessageBox.Show("Var Olan Ürüne Ekleme Yapıldı");
-            foreach(Control item in groupBox2.Controls)
+            try
             {
-                if(item is TextBox)
+                connect.Open();
+                String query = "update urun set miktar = miktar + '" + int.Parse(MiktariTxt.Text) + "' where urunID = '" + UrunIDtxt.Text + "'";
+                SqlCommand command = new SqlCommand(query, connect);
+                command.ExecuteNonQuery();
+                connect.Close();
+                MessageBox.Show("Var Olan Ürüne Ekleme Yapıldı");
+                foreach (Control item in groupBox2.Controls)
                 {
-                    item.Text = "";
+                    if (item is TextBox)
+                    {
+                        item.Text = "";
+                    }
                 }
             }
-
+            catch(Exception ex)
+            {
+                connect.Close();
+                MessageBox.Show("Ürün bilgisi girilmedi\nHata Mesajı: " + ex.Message);
+            }
         }
         bool flag;
         private void urun_kontrol_yeni_urun()

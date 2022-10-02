@@ -124,7 +124,7 @@ namespace stock_tracking_automation
             while (read.Read())
             {
                 txtUrunAdi.Text = read["urunAdi"].ToString();
-                txtMiktar.Text = read["miktar"].ToString();
+                //txtMiktar.Text = read["miktar"].ToString();
                 txtSatisFiyati.Text = read["satisFiyati"].ToString();
                 txtToplamFiyat.Text = (double.Parse(txtMiktar.Text) * double.Parse(txtSatisFiyati.Text)).ToString();
             }
@@ -151,54 +151,62 @@ namespace stock_tracking_automation
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            urunID_kontrol();
-            if (flag == true) {
-                connect.Open();
-                string query = "insert into sepet(musteriNo,adSoyad,telefon,urunID,urunAdi,miktar,satisFiyati,toplamFiyati,tarih) values(@musteriNo,@adSoyad,@telefon,@urunID,@urunAdi,@miktar,@satisFiyati,@toplamFiyati,@tarih)";
-                SqlCommand command = new SqlCommand(query, connect);
-                command.Parameters.AddWithValue("@musteriNo", int.Parse(txtMusteriNo.Text));
-                command.Parameters.AddWithValue("@adSoyad", txtAdSoyad.Text);
-                command.Parameters.AddWithValue("@telefon", txtTel.Text);
-                command.Parameters.AddWithValue("@urunID", int.Parse(txtUrunID.Text));
-                command.Parameters.AddWithValue("@urunAdi", txtUrunAdi.Text);
-                command.Parameters.AddWithValue("@miktar", int.Parse(txtMiktar.Text));
-                command.Parameters.AddWithValue("@satisFiyati", double.Parse(txtSatisFiyati.Text));
-                command.Parameters.AddWithValue("@toplamFiyati", double.Parse(txtToplamFiyat.Text));
-                command.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
-                command.ExecuteNonQuery();
-                connect.Close();
-            }
-            else
+            try
             {
-                connect.Open();
-                string query2 = "update sepet set miktar = miktar + '" + int.Parse(txtMiktar.Text) + "' where urunID ='" + int.Parse(txtUrunID.Text) + "'";
-                SqlCommand command2 = new SqlCommand(query2, connect);
-                command2.ExecuteNonQuery();
-                string query3 = "update sepet set toplamFiyati = miktar * satisFiyati where urunID ='" + int.Parse(txtUrunID.Text) + "'";
-                SqlCommand command3 = new SqlCommand(query3, connect);
-                command3.ExecuteNonQuery();
-                connect.Close();
-            }
-            ds.Tables["sepet"].Clear();
-            sepetListele();
-            hesapla();
-            txtMiktar.Text = "1";
-            foreach (Control item in groupBox2.Controls)
-            {
-                if (item is TextBox)
+                urunID_kontrol();
+                if (flag == true) {
+                    connect.Open();
+                    string query = "insert into sepet(musteriNo,adSoyad,telefon,urunID,urunAdi,miktar,satisFiyati,toplamFiyati,tarih) values(@musteriNo,@adSoyad,@telefon,@urunID,@urunAdi,@miktar,@satisFiyati,@toplamFiyati,@tarih)";
+                    SqlCommand command = new SqlCommand(query, connect);
+                    command.Parameters.AddWithValue("@musteriNo", int.Parse(txtMusteriNo.Text));
+                    command.Parameters.AddWithValue("@adSoyad", txtAdSoyad.Text);
+                    command.Parameters.AddWithValue("@telefon", txtTel.Text);
+                    command.Parameters.AddWithValue("@urunID", int.Parse(txtUrunID.Text));
+                    command.Parameters.AddWithValue("@urunAdi", txtUrunAdi.Text);
+                    command.Parameters.AddWithValue("@miktar", int.Parse(txtMiktar.Text));
+                    command.Parameters.AddWithValue("@satisFiyati", double.Parse(txtSatisFiyati.Text));
+                    command.Parameters.AddWithValue("@toplamFiyati", double.Parse(txtToplamFiyat.Text));
+                    command.Parameters.AddWithValue("@tarih", DateTime.Now.ToString());
+                    command.ExecuteNonQuery();
+                    connect.Close();
+                }
+                else
                 {
-                    if (item != txtMiktar)
+                    connect.Open();
+                    string query2 = "update sepet set miktar = miktar + '" + int.Parse(txtMiktar.Text) + "' where urunID ='" + int.Parse(txtUrunID.Text) + "'";
+                    SqlCommand command2 = new SqlCommand(query2, connect);
+                    command2.ExecuteNonQuery();
+                    string query3 = "update sepet set toplamFiyati = miktar * satisFiyati where urunID ='" + int.Parse(txtUrunID.Text) + "'";
+                    SqlCommand command3 = new SqlCommand(query3, connect);
+                    command3.ExecuteNonQuery();
+                    connect.Close();
+                }
+                ds.Tables["sepet"].Clear();
+                sepetListele();
+                hesapla();
+                txtMiktar.Text = "1";
+                foreach (Control item in groupBox2.Controls)
+                {
+                    if (item is TextBox)
+                    {
+                        if (item != txtMiktar)
+                        {
+                            item.Text = "";
+                        }
+                    }
+                }
+                foreach (Control item in groupBox1.Controls)
+                {
+                    if (item is TextBox)
                     {
                         item.Text = "";
                     }
                 }
             }
-            foreach (Control item in groupBox1.Controls)
+            catch(Exception ex)
             {
-                if (item is TextBox)
-                {
-                    item.Text = "";
-                }
+                connect.Close();
+                MessageBox.Show("Müsteri yada ürün seçmediniz " + "hata: " + ex.Message);
             }
         }
 
@@ -214,15 +222,22 @@ namespace stock_tracking_automation
 
         private void btnSil_Click(object sender, EventArgs e)
         {
-            connect.Open();
-            String query = String.Format("delete from sepet where urunID = '" + dataGridView1.CurrentRow.Cells["urunID"].Value.ToString()) + "'";
-            SqlCommand command = new SqlCommand(query, connect);
-            command.ExecuteNonQuery();
-            connect.Close();
-            MessageBox.Show("Ürün sepetten çıkarıldı");
-            ds.Tables["sepet"].Clear();/*Güncelleme sonrası kayıtlar yeniden getirildi*/
-            sepetListele();
-            hesapla();
+            try
+            {
+                connect.Open();
+                String query = "delete from sepet where urunID = '" + dataGridView1.CurrentRow.Cells["urunID"].Value.ToString()+"'";
+                SqlCommand command = new SqlCommand(query, connect);
+                command.ExecuteNonQuery();
+                connect.Close();
+                MessageBox.Show("Ürün sepetten çıkarıldı");
+                ds.Tables["sepet"].Clear();/*Güncelleme sonrası kayıtlar yeniden getirildi*/
+                sepetListele();
+                hesapla();
+            }
+            catch(Exception ex) {
+                connect.Close();
+                MessageBox.Show("Seçili Ürün Bulunamadı");
+            }
         }
 
         private void btnSatisİptal_Click(object sender, EventArgs e)
